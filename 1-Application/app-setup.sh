@@ -7,6 +7,9 @@ kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.24/samp
 echo "install Istio Gateway and virutal service"
 kubectl apply -f gateway.yaml
 
+echo "install virtual service for the httpbin service"
+kubectl apply -f virtual-service.yaml
+
 echo "Determine Ingress Host and Port"
 export INGRESS_NAME=istio-ingressgateway
 export INGRESS_NS=istio-system
@@ -25,4 +28,5 @@ else
   exit 1
 fi
 
+echo "sending request to $INGRESS_HOST:$INGRESS_PORT"
 curl -s -I -HHost:httpbin.example.com "http://$INGRESS_HOST:$INGRESS_PORT/status/200"
