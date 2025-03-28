@@ -51,6 +51,5 @@ spec:
               envoy_grpc:
                 cluster_name: rate_limit_cluster
               timeout: 10s
-          include_rate_limit_headers: DRAFT_VERSION_03
-          transport_api_version: V3
+          enable_x_ratelimit_headers: DRAFT_VERSION_03
 
