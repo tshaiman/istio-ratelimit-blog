@@ -17,6 +17,7 @@ export INGRESS_NS=istio-system
 export INGRESS_HOST=$(kubectl -n "$INGRESS_NS" get service "$INGRESS_NAME" -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 export INGRESS_PORT=$(kubectl -n "$INGRESS_NS" get service "$INGRESS_NAME" -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
 
+echo "Found Host at $INGRESS_HOST:$INGRESS_PORT"
 echo "*****************"
 echo "Start the kind cloud provider by running ./cloud-provider-kind"
 echo "*****************"
