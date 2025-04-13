@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ratelimit-config
+  namespace: istio-system
+  labels:
+    app: ratelimit
+data:
+  config.yaml: |
+    domain: global
+    descriptors:
+      - key: STATUS
+        value: "/status/200"
+        rate_limit:
+          unit: minute
+          requests_per_unit: 4
