@@ -7,8 +7,8 @@ The full details are described on the blog itself.
 2. Run the following commad to apply the contet of this part
 
 ```sh
-kubectl apply -f ./2-ratelimit-simple
-kubectl apply -f ./2-ratelimit-simple/envoy-filters
+kubectl apply -f ./2-simple-ratelimit
+kubectl apply -f ./2-simple-ratelimit/envoy-filters
 ```
 
 3. as in previous section set up the Ingress host and port and run the curl command 4 times .the fifth time should be blocked with 429 error code 
