@@ -10,11 +10,17 @@ data:
     domain: global
     descriptors:
       - key: PARTNER
-        rate_limit:
-          unit: minute
-          requests_per_unit: 4
-      - key: STATUS
-        value: "/status/200"
-        rate_limit:
-          unit: minute
-          requests_per_unit: 4
+        value: "222"
+        descriptors:
+        - key: PATH
+          value: "/status/200"
+          rate_limit:
+            unit: minute
+            requests_per_unit: 6
+      - key: PARTNER
+        descriptors:
+        - key: PATH
+          value: "/status/200"
+          rate_limit:
+            unit: minute
+            requests_per_unit: 4      

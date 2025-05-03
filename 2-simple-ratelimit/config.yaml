@@ -9,7 +9,7 @@ data:
   config.yaml: |
     domain: global
     descriptors:
-      - key: STATUS
+      - key: PATH
         value: "/status/200"
         rate_limit:
           unit: minute

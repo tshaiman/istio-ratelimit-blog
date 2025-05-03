@@ -23,4 +23,4 @@ spec:
         - actions:
           - request_headers:
               header_name: ':path'
-              descriptor_key: 'STATUS'
+              descriptor_key: 'PATH'

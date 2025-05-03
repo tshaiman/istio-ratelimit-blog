@@ -1,6 +1,7 @@
 # Install application and Gateway
 
 1. run ./app-setup.sh
+2. ensure to run `cloud-provider-kind` in seperate terminal. ( see full instructions under the setup section)
 2. Ensure you have valid response by running the following code 
 
 ```sh
