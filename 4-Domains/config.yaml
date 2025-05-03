@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ratelimit-config
+  namespace: istio-system
+  labels:
+    app: ratelimit
+data:
+  global-rate-limit.yaml: |
+    domain: global
+    descriptors:
+      - key: PARTNER
+        value: "222"
+        descriptors:
+        - key: PATH
+          value: "/status/200"
+          rate_limit:
+            unit: minute
+            requests_per_unit: 6
+      - key: PARTNER
+        descriptors:
+        - key: PATH
+          value: "/status/200"
+          rate_limit:
+            unit: minute
+            requests_per_unit: 4
+  user-rate-limit.yaml: |
+    domain: user
+    descriptors:
+      - key: USER_ID
+        value: "user123"
+        descriptors:
+        - key: PATH
+          value: "/status/200"
+          rate_limit:
+            unit: minute
+            requests_per_unit: 2
